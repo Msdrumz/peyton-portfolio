@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Peyton Bailey | Data Science Portfolio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+
+/* =========================
+GLOBAL
+========================= */
+
+body{
+font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+background:#f8fafc;
+color:#0f172a;
+}
+
+
+/* =========================
+ABOUT SECTION
+========================= */
+
+.about-section{
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 70px;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef7ff 45%, #fff7ef 100%);
+}
+
+.about-section::before,
+.about-section::after{
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.22;
+}
+
+.about-section::before{
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #0dcaf0 0%, transparent 70%);
+  top: -80px;
+  left: -90px;
+}
+
+.about-section::after{
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #fd7e14 0%, transparent 70%);
+  bottom: -140px;
+  right: -120px;
+}
+
+.about-text-box,
+.about-image-area{
+  position: relative;
+  z-index: 2;
+}
+
+.about-text-box{
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(8px);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.7);
+}
+
+.about-eyebrow{
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0dcaf0, #20c997);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.about-title{
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.highlight{
+  color: #fd7e14;
+}
+
+.about-lead{
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.about-description{
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.about-description a{
+  color: #0d6efd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.about-description a:hover{
+  text-decoration: underline;
+}
+
+.about-tags{
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.about-tag{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  box-shadow: 0 8px 18px rgba(13,110,253,0.08);
+}
+
+.tag-python{
+background:rgba(13,110,253,0.12);
+color:#0d6efd;
+border:1px solid rgba(13,110,253,0.25);
+}
+
+.tag-analytics{
+background:rgba(25,135,84,0.12);
+color:#198754;
+border:1px solid rgba(25,135,84,0.25);
+}
+
+.tag-ml{
+background:rgba(111,66,193,0.12);
+color:#6f42c1;
+border:1px solid rgba(111,66,193,0.25);
+}
+
+.tag-creative{
+background:rgba(253,126,20,0.12);
+color:#fd7e14;
+border:1px solid rgba(253,126,20,0.25);
+}
+
+.about-image-area{
+  position: relative;
+  z-index: 2;
+}
+
+.about-image-card{
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border-radius: 32px;
+  padding: 1.5rem;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.10);
+}
+
+.about-image-card::before{
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 24px;
+  border: 2px dashed rgba(13,202,240,0.35);
+  pointer-events: none;
+}
+
+.about-photo{
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  min-height: 520px;
+  max-height: 650px;
+  z-index: 2;
+  display: block;
+}
+
+.about-feature-grid{
+  display: flex;
+  gap: 1rem;
+}
+
+.about-feature-card{
+  text-align: center;
+}
+
+.about-feature-card{
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.1rem;
+  box-shadow: 0 10px 24px rgba(15,23,42,0.07);
+  height: 100%;
+}
+
+.about-feature-icon{
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.icon-music{
+  background: rgba(13,202,240,0.14);
+  color: #0dcaf0;
+}
+
+.icon-data{
+  background: rgba(25,135,84,0.14);
+  color: #198754;
+}
+
+.icon-learning{
+  background: rgba(253,126,20,0.14);
+  color: #fd7e14;
+}
+
+.icon-creative{
+  background: rgba(111,66,193,0.14);
+  color: #6f42c1;
+}
+
+.about-feature-card h5{
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+  color: #0f172a;
+}
+
+.about-feature-card p{
+  font-size: 0.88rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media(max-width: 991px){
+  .about-section{
+    padding: 50px 0 60px;
+  }
+
+  .about-photo{
+    min-height: 420px;
+    max-height: none;
+  }
+
+  .about-feature-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 575px){
+  .about-text-box{
+    padding: 1.5rem;
+  }
+
+  .about-photo{
+    min-height: 320px;
+  }
+}
+
+
+    /* =========================
+    PROJECTS SECTION
+ ========================= */
+ 
+ /* =========================
+   PROJECTS SECTION
+========================= */
+
+.projects-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f5fbff 60%, #fff7ef 100%);
+}
+
+.projects-title {
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin-bottom: 12px;
+  color: #0f172a;
+  text-align: center;
+}
+
+.projects-subtitle {
+  color: #475569;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.project-card {
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
+}
+
+.project-img {
+  height: 240px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-card-body {
+  padding: 1.5rem;
+}
+
+.project-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.tag-deep {
+  background: rgba(111, 66, 193, 0.15);
+  color: #6f42c1;
+}
+
+.tag-ml {
+  background: rgba(25, 135, 84, 0.12);
+  color: #198754;
+}
+
+.tag-deploy {
+  background: rgba(13, 202, 240, 0.15);
+  color: #0dcaf0;
+}
+
+.project-title {
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+.project-description {
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-tech span {
+  display: inline-block;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.project-highlights {
+  padding-left: 1.1rem;
+  margin-bottom: 1.25rem;
+  color: #334155;
+}
+
+.project-highlights li {
+  margin-bottom: 0.45rem;
+  line-height: 1.6;
+}
+
+.project-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project-btn {
+  border-radius: 30px;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  .projects-section {
+    padding: 75px 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .project-img {
+    height: 210px;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+}
+/* =========================
+   SKILLS SECTION
+========================= */
+
+.skills-section {
+  padding: 100px 0;
+  background-color: #f3f3f3;
+}
+
+.skills-heading {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.skill-item {
+  text-align: center;
+  padding: 1rem 1rem 0;
+}
+
+.skill-icon-wrap {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.skill-icon {
+  max-width: 140px;
+  max-height: 140px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.skill-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+.skill-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #222;
+  max-width: 320px;
+  margin: 0 auto 1rem;
+}
+
+.skill-link {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0d4fb3;
+  text-decoration: none;
+}
+
+.skill-link:hover {
+  text-decoration: underline;
+  color: #0a3d8f;
+}
+
+@media (max-width: 991.98px) {
+  .skills-section {
+    padding: 70px 0;
+  }
+
+  .skills-heading {
+    margin-bottom: 3rem;
+  }
+
+  .skill-item {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .skill-title {
+    font-size: 1.6rem;
+  }
+
+  .skill-description {
+    font-size: 0.95rem;
+  }
+
+  /* =========================
+   SKILLS ICON ALIGNMENT FIX
+========================= */
+
+.skill-icon-wrap {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 1.5rem auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+}
+ 
+
+ /* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+  padding: 100px 0;
+  background: #111111;
+  color: #ffffff;
+}
+
+.contact-heading {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+
+.contact-info-row {
+  margin-bottom: 2.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.95rem;
+  color: #cfcfcf;
+  margin-bottom: 0.15rem;
+}
+
+.contact-link,
+.contact-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-link:hover {
+  color: #ff8cc6;
+  text-decoration: underline;
+}
+
+.contact-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background-color: #ff5fa2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  box-shadow: 0 10px 24px rgba(255, 95, 162, 0.28);
+}
+
+.social-btn:hover {
+  transform: translateY(-4px);
+  background-color: #ff7bb4;
+  box-shadow: 0 14px 28px rgba(255, 95, 162, 0.38);
+}
+
+.social-icon-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+@media (max-width: 991.98px) {
+  .contact-section {
+    padding: 75px 0;
+  }
+
+  .contact-item {
+    flex-direction: column;
+  }
+
+  .contact-info-col {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .contact-heading {
+    margin-bottom: 2.25rem;
+  }
+
+  .contact-link,
+  .contact-text {
+    font-size: 1.05rem;
+  }
+
+  .contact-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 1.3rem;
+  }
+
+  .social-btn {
+    width: 66px;
+    height: 66px;
+  }
+
+  .social-icon-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar-custom {
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 14px 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.navbar-brand:hover {
+  color: #ff8cc6;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  margin-left: 18px;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #ff8cc6 !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #ff8cc6;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* prevents sections from hiding under navbar */
+section {
+  scroll-margin-top: 90px;
+}
+
+
+/* =========================
+   CREDENTIALS SECTION
+========================= */
+
+.credentials-section {
+  background: #f7f9fc;
+}
+
+.credential-card {
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform .25s ease;
+}
+
+.credential-card:hover {
+  transform: translateY(-6px);
+}
+
+.credential-badge {
+  max-height: 160px;
+  object-fit: contain;
+}
+</style>
+
+</head>
+<body>
+
+  
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+      <div class="container">
+    
+        <!-- Logo / Brand -->
+        <a class="navbar-brand" href="#">Peyton Bailey</a>
+    
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+    
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+    
+          </ul>
+        </div>
+    
+      </div>
+    </nav>
+  <!-- other sections can go here -->
+
+  <!-- =========================
+ABOUT SECTION
+========================= -->
+
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="row align-items-start g-4">
+
+      <!-- LEFT SIDE -->
+      <div class="col-lg-6">
+        <div class="about-text-box">
+
+          <span class="about-eyebrow">About Me</span>
+
+          <h2 class="about-title">
+            Turning <span class="highlight">data</span> into meaningful insights
+          </h2>
+
+          <p class="about-lead">
+            I'm Peyton Bailey, a data science graduate student with a background in environmental science and a passion for using data to solve real-world problems.
+          </p>
+
+          <p class="about-description">
+            My work combines analytical thinking, curiosity, and creativity. I enjoy exploring data, building technical skills in machine learning and analytics, and communicating insights in a clear and meaningful way.
+          </p>
+
+          <p class="about-description">
+            Outside of data science, I’m also a professional steel drum musician. That creative background has shaped the way I approach problem-solving, bringing discipline, adaptability, and originality into the work I do.
+          </p>
+
+          <p class="about-description">
+            If you're curious about my music work, you can learn more here:
+            <a href="https://bookextraordinary.com/hire-musicians/hire-ms-drumz-steel-drum-musician/" target="_blank">
+              Ms. Drumz Steel Drum Music
+            </a>.
+          </p>
+
+          <div class="about-tags">
+            <span class="about-tag tag-python"><i class="bi bi-code-slash"></i> Python</span>
+            <span class="about-tag tag-analytics"><i class="bi bi-graph-up"></i> Analytics</span>
+            <span class="about-tag tag-ml"><i class="bi bi-cpu"></i> Machine Learning</span>
+            <span class="about-tag tag-creative"><i class="bi bi-lightbulb"></i> Creative Problem Solving</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="col-lg-6">
+        <div class="about-image-area">
+
+          <div class="about-image-card">
+            <img
+              src="images/about/1.jpg"
+              alt="Peyton Bailey portrait"
+              class="about-photo img-fluid"
+            >
+          </div>
+
+        </div>
+      </div>
+
+      <div class="about-feature-grid">
+
+            <div class="about-feature-card">
+              <div class="about-feature-icon icon-music"><i class="bi bi-music-note-list"></i></div>
+              <h5>Music-Driven</h5>
+              <p>Creativity and rhythm shape how I connect ideas.</p>
+            </div>
+
+            <div class="about-feature-card">
+              <div class="about-feature-icon icon-data"><i class="bi bi-graph-up-arrow"></i></div>
+              <h5>Data-Focused</h5>
+              <p>I enjoy exploring patterns and solving problems through data.</p>
+            </div>
+
+            <div class="about-feature-card">
+              <div class="about-feature-icon icon-learning"><i class="bi bi-mortarboard-fill"></i></div>
+              <h5>Always Learning</h5>
+              <p>Committed to growing my skills in analytics and machine learning.</p>
+            </div>
+
+            <div class="about-feature-card">
+              <div class="about-feature-icon icon-creative"><i class="bi bi-palette"></i></div>
+              <h5>Creative Energy</h5>
+              <p>Original thinking and adaptability drive my work.</p>
+            </div>
+
+          </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="projects" class="projects-section">
+  <div class="container">
+
+    <h2 class="projects-title">Projects</h2>
+    <p class="projects-subtitle">
+      Here are a few featured projects that showcase my work in deep learning,
+      machine learning, and data pipeline development through my graduate studies
+      and hands-on analytics work.
+    </p>
+
+    <div class="row g-4">
+
+      <!-- Project 1 -->
+      <div class="col-md-6 col-xl-4">
+        <div class="card project-card h-100">
+          <img
+            src="images/projects/1.jpg"
+            class="card-img-top project-img"
+            alt="CNN Image Classification Project"
+          >
+
+          <div class="card-body project-card-body d-flex flex-column">
+            <span class="project-tag tag-deep">Deep Learning</span>
+
+            <h5 class="project-title">Image Classification with CNN</h5>
+
+            <p class="project-description">
+              Built a convolutional neural network to classify images using deep
+              learning techniques. This project included preprocessing image data,
+              training the model, evaluating performance, and analyzing results
+              through visual metrics.
+            </p>
+
+            <div class="project-tech">
+              <span>Python</span>
+              <span>TensorFlow / Keras</span>
+              <span>Jupyter</span>
+              <span>Matplotlib</span>
+              <span>Computer Vision</span>
+            </div>
+
+            <ul class="project-highlights">
+              <li>Classified 30 different plant species using CNN architecture.</li>
+              <li>Used training/validation evaluation and confusion matrix analysis.</li>
+              <li>Achieved high accuracy through model tuning and preprocessing.</li>
+              <li>Demonstrated deep learning workflow from dataset to evaluation.</li>
+              </ul>
+
+              <div class="project-btn-group mt-auto d-flex justify-content-center">
+              <a href="https://github.com/Msdrumz/cnn-plant-classifier" class="btn btn-outline-dark project-btn">View GitHub</a>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-md-6 col-xl-4">
+        <div class="card project-card h-100">
+          <img
+            src="images/projects/2.jpg"
+            class="card-img-top project-img"
+            alt="Machine Learning Prediction Model Project"
+          >
+
+          <div class="card-body project-card-body d-flex flex-column">
+            <span class="project-tag tag-ml">Machine Learning</span>
+
+            <h5 class="project-title">Predictive Machine Learning Model</h5>
+            <p class="project-description">
+                Built a machine learning model using multiple linear regression to predict 
+                residential housing prices. The project involved preparing the dataset, 
+                training the regression model, evaluating predictive performance, and 
+                interpreting the results to understand factors influencing property value.
+            </p>
+
+            <div class="project-tech">
+              <span>Python</span>
+              <span>pandas</span>
+              <span>scikit-learn</span>
+              <span>Jupyter</span>
+              <span>Data Analysis</span>
+            </div>
+
+            <ul class="project-highlights">
+              <li>Used multiple linear regression for predictive modeling.</li>
+              <li>Analyzed features including square footage, bedrooms, bathrooms, and home age.</li>
+              <li>Included neighborhood crime rate as a socioeconomic variable.</li>
+              <li>Evaluated model accuracy and relationships between features and price.</li>
+            </ul>
+
+            <div class="project-btn-group mt-auto d-flex justify-content-center">
+              <a href="https://github.com/Msdrumz/housing-price-prediction" class="btn btn-outline-dark project-btn">View GitHub</a>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="col-md-6 col-xl-4">
+        <div class="card project-card h-100">
+          <img
+            src="images/projects/3.jpg"
+            class="card-img-top project-img"
+            alt="Data Pipeline and Deployment Project"
+          >
+
+          <div class="card-body project-card-body d-flex flex-column">
+            <span class="project-tag tag-deploy">Deployment</span>
+
+            <h5 class="project-title">Data Pipeline & Deployment Workflow</h5>
+
+            <p class="project-description">
+              Developed a machine learning pipeline to predict flight delays based on 
+              the origin of incoming flights to a selected airport. The project focused 
+              on building an automated ML workflow using MLflow, deploying the trained model 
+              through a REST API, and validating functionality with unit tests.
+            </p>
+
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Data Cleaning</span>
+              <span>Pipeline Design</span>
+              <span>Jupyter</span>
+              <span>Environment Setup</span>
+            </div>
+
+            <ul class="project-highlights">
+              <li>Built an automated ML pipeline using MLflow.</li>
+              <li>Predicted flight delays using airport origin data.</li>
+              <li>Deployed the trained model through a REST API.</li>
+              <li>Implemented unit testing to validate API functionality.</li>
+              <li>Containerized the application for deployment.</li>
+            </ul>
+
+            <div class="project-btn-group mt-auto d-flex justify-content-center">
+              <a href=" https://github.com/Msdrumz/flight-delay-ml-pipeline" class="btn btn-outline-dark project-btn">View GitHub</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-section">
+  <div class="container">
+
+    <h2 class="skills-heading">Technical Skills</h2>
+
+    <div class="row justify-content-center">
+
+      <!-- Skill 1 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-item">
+
+          <div class="skill-icon-wrap">
+            <img src="images/skills/1.png" alt="Python icon" class="skill-icon">
+          </div>
+
+          <h3 class="skill-title">Python & Data Analysis</h3>
+
+          <p class="skill-description">
+            Experienced using Python for data analysis, including pandas,
+            NumPy, and data cleaning workflows used in real analytical projects.
+          </p>
+
+          <a href="#projects" class="skill-link">
+            View related projects
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Skill 2 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-item">
+
+          <div class="skill-icon-wrap">
+            <img src="images/skills/2.png" alt="Machine Learning icon" class="skill-icon">
+          </div>
+
+          <h3 class="skill-title">Machine Learning</h3>
+
+          <p class="skill-description">
+            Built predictive models using machine learning techniques including
+            model training, feature selection, and performance evaluation.
+          </p>
+
+          <a href="#projects" class="skill-link">
+            See ML project
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Skill 3 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-item">
+
+          <div class="skill-icon-wrap">
+            <img src="images/skills/3.png" alt="Deep Learning icon" class="skill-icon">
+          </div>
+
+          <h3 class="skill-title">Deep Learning</h3>
+
+          <p class="skill-description">
+            Developed convolutional neural networks (CNNs) for image classification
+            tasks including training models to recognize 30 plant species.
+          </p>
+
+          <a href="#projects" class="skill-link">
+            View CNN project
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Skill 4 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-item">
+
+          <div class="skill-icon-wrap">
+            <img src="images/skills/4.png" alt="Data Pipeline icon" class="skill-icon">
+          </div>
+
+          <h3 class="skill-title">Data Pipelines</h3>
+
+          <p class="skill-description">
+            Built structured workflows for importing, cleaning, and processing data
+            as part of deployment-focused analytics projects.
+          </p>
+
+          <a href="#projects" class="skill-link">
+            Explore deployment project
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+            
+  <section id="credentials" class="credentials-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">WGU Data Science Credentials</h2>
+  
+      <div class="row justify-content-center g-4">
+  
+        <!-- Badge 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card credential-card text-center h-100">
+            <div class="p-4">
+              <img
+                src="images/credentials/1.png"
+                class="credential-badge img-fluid"
+                alt="WGU Data Science Professional Badge"
+              >
+            </div>
+  
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Data Science Professional</h5>
+  
+              <p class="card-text">
+                WGU specialization credential demonstrating applied knowledge
+                in data science including analytics, modeling, and practical
+                data-driven problem solving.
+              </p>
+  
+              <div class="mt-auto">
+                <a
+                  href="https://wgu.badges.parchment.com/public/assertions/s-FaD93kT1O66pT2ZFHgog"
+                  target="_blank"
+                  class="btn btn-primary"
+                >
+                  Verify Credential
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Badge 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card credential-card text-center h-100">
+            <div class="p-4">
+              <img
+                src="images/credentials/2.png"
+                class="credential-badge img-fluid"
+                alt="WGU Data Operations Certificate"
+              >
+            </div>
+  
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Data Operations Certificate</h5>
+  
+              <p class="card-text">
+                Certificate awarded by Western Governors University recognizing
+                competency in data operations including data management,
+                pipelines, and modern data infrastructure concepts.
+              </p>
+  
+              <div class="mt-auto">
+                <a
+                  href="https://wgu.badges.parchment.com/public/assertions/Me1kbD77R_W1fg8gMDs1xg"
+                  target="_blank"
+                  class="btn btn-primary"
+                >
+                  Verify Credential
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Badge 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card credential-card text-center h-100">
+            <div class="p-4">
+              <img
+                src="images/credentials/3.png"
+                class="credential-badge img-fluid"
+                alt="WGU Data Analytics Professional Certificate"
+              >
+            </div>
+  
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Data Analytics Professional</h5>
+  
+              <p class="card-text">
+                Professional certificate from Western Governors University
+                demonstrating competency in data analytics, including data
+                analysis, visualization, and interpreting data to support
+                informed decision-making.
+              </p>
+  
+              <div class="mt-auto">
+                <a
+                  href="https://wgu.badges.parchment.com/public/assertions/LrQvgbIUQUaPO15-EQuJ4Q"
+                  target="_blank"
+                  class="btn btn-primary"
+                >
+                  Verify Credential
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="contact-heading">Contact Me</h2>
+  
+      <div class="row justify-content-center align-items-center contact-info-row text-center">
+        <!-- Email -->
+        <div class="col-md-6 contact-info-col">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div>
+              <span class="contact-label">Email</span>
+              <a href="mailto:peytonebailey@gmail.com" class="contact-link">
+                peytonebailey@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Phone -->
+        <div class="col-md-6 contact-info-col">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div>
+              <span class="contact-label">Phone</span>
+              <a href="tel:7575825188" class="contact-link">
+                757.582.5188
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="contact-socials">
+        <a
+          href="https://www.linkedin.com/in/pbailey00"
+          target="_blank"
+          class="social-btn"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="LinkedIn"
+          aria-label="LinkedIn"
+        >
+          <img src="icons/linkedin.png" alt="LinkedIn icon" class="social-icon-img">
+        </a>
+  
+        <a
+          href="https://github.com/Msdrumz/Data-Science-Master-s-Projects"
+          target="_blank"
+          class="social-btn"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="GitHub"
+          aria-label="GitHub"
+        >
+          <img src="icons/github.png" alt="GitHub icon" class="social-icon-img">
+        </a>
+      </div>
+    </div>
+  </section>
+  </body>
